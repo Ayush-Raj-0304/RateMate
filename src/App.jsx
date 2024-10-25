@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { React , useState } from 'react';
 import InputBox from './assets/components/InputBox';
 import useCurrencyInfo from './assets/customHooks/useCurrencyInfo';
 import './App.css';
