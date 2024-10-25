@@ -1,19 +1,19 @@
-import { React , useState } from 'react';
+import { React, useState } from 'react';
 import InputBox from './assets/components/InputBox';
 import useCurrencyInfo from './assets/customHooks/useCurrencyInfo';
 import './App.css';
 
 function App() {
-  const [amount, setAmount] = useState(0); 
+  const [amount, setAmount] = useState(0);
   const [result, setResult] = useState(0);
-  
-  const [from, setFrom] = useState('usd'); 
-  const [to, setTo] = useState('inr'); 
+
+  const [from, setFrom] = useState('usd');
+  const [to, setTo] = useState('inr');
 
   const convertInto = useCurrencyInfo(from);
   const allCurrencies = Object.keys(convertInto);
 
-  const swap = () => { 
+  const swap = () => {
     setFrom(to);
     setTo(from);
     setAmount(result);
@@ -28,11 +28,11 @@ function App() {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600 text-white">
-      <div className="w-full max-w-lg mx-auto border border-gray-600 rounded-xl p-8 bg-gray-900 bg-opacity-40 backdrop-blur-md shadow-lg">
-        <h1 className="text-5xl font-bold text-center mb-4">
+      <div className="w-full max-w-lg mx-auto border border-gray-600 rounded-xl p-6 md:p-8 bg-gray-900 bg-opacity-40 backdrop-blur-md shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 drop-shadow-lg">RateMate</span>
         </h1>
-        <h2 className="text-3xl font-semibold text-center mb-4">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-4">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-200 drop-shadow-lg">Currency Converter</span>
         </h2>
         <form
@@ -46,7 +46,7 @@ function App() {
             label="From"
             amount={amount}
             onAmountChange={(newAmount) => setAmount(newAmount)}
-            isAmountDisabled={false} 
+            isAmountDisabled={false}
             currency={from}
             onCurrencyChange={(newCurrency) => setFrom(newCurrency)}
             isCurrencyDisabled={false}
@@ -80,7 +80,6 @@ function App() {
           >
             Convert {from.toUpperCase()} to {to.toUpperCase()}
           </button>
-
         </form>
       </div>
     </div>
